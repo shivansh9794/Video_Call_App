@@ -78,6 +78,8 @@ const RoomPage = () => {
             setRemoteStream(remoteStream);
         })
     }, [])
+    console.log("hello");
+    
 
 
     const handleNegotiationNeededIncomming=useCallback(({from,offer})=>{
