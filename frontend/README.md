@@ -1,12 +1,14 @@
-# React + Vite
+This is a app where i Used a Web RTC for Video confrencing.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Just clone this reposetry 
 
-Currently, two official plugins are available:
+Then open Terminal 
+write command - cd frontend
+and then write - npm i 
+Now Open new tab inb terminal 
+and write command - cd backen
+and then write - npm i 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+then run the frontend and backend by these commands 
+For frontend - npm run dev
+For backend - npm run dev
