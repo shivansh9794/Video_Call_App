@@ -112,8 +112,6 @@ const RoomPage = () => {
     }, [socket, handleUserJoined, handleInCommingCall, handleCallAccepted , handleNegotiationNeededIncomming,handleNegoFinal])
     // console.log("15-3-25");   
     // console.log("16-3-25");
-    
-    
 
     return (
         <div>
