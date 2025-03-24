@@ -26,7 +26,7 @@ const RoomPage = () => {
     const handleCallUser = useCallback(
         async () => {
             const stream = await navigator.mediaDevices.getUserMedia({
-                audio: true,
+                audio: false,
                 video: true
             })
             const offer = await peer.getOffer();
@@ -182,17 +182,17 @@ const RoomPage = () => {
 
             <h1 className={`font-semibold ${remoteSocketId ? 'text-green-500' : 'text-red-600'}`}>{remoteSocketId ? 'Connected' : 'No One is Online'}</h1>
 
-            <div className='grid grid-cols-2 w-full'>
+            <div className='flex gap-1 w-full max-[700px]:flex-col'>
 
-                <div className='col-span-1 bg-gray-500 w-[100%] h-[90vh] flex flex-col justify-center items-center'>
+                <div className=' bg-gray-500 w-1/2 max-[700px]:w-full h-[50%] min-[700px]:h-[90vh] flex flex-col justify-center items-center'>
                     <h1 className='heading'>Sender's Video</h1>
-                    {myStream && <ReactPlayer playing height="450px" width="300px" url={myStream} />}
+                    {myStream && <ReactPlayer playing height="full" width="full" url={myStream} />}
                     {remoteSocketId && !myStream && <button onClick={handleCallUser} className='btn'>CALL</button>}
                 </div>
 
-                <div className='bg-green-400 col-span-1 w-[100%] h-[90vh] flex flex-col justify-center items-center'>
+                <div className='bg-green-400 w-1/2 max-[700px]:w-full h-[50%] min-[700px]:h-[90vh] flex flex-col justify-center items-center'>
                     <h1 className='heading'>Receiver's Video</h1>
-                    {remoteStream && <ReactPlayer playing height="450px" width="300px" url={remoteStream} />}
+                    {remoteStream && <ReactPlayer playing height="full" width="full" url={remoteStream} />}
                     {myStream && !callAccepted && <button className='btn' onClick={sendStrems}>Accept Call</button>}
                 </div>
             </div>
