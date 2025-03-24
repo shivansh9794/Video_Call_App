@@ -35,7 +35,4 @@ class peerService{
         }
     }
 }
-
-console.log("hello");
-
 export default new peerService();
