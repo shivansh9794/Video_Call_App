@@ -2,9 +2,11 @@ import React, { useCallback, useEffect, useState } from 'react'
 import { useSocket } from '../context/SocketProvider'
 import ReactPlayer from 'react-player'
 import peer from '../service/peer'
+import { useNavigate } from 'react-router'
 
 const RoomPage = () => {
 
+    const navigate= useNavigate();
     const socket = useSocket(); //initializing Socket
 
     // ALl the States
@@ -124,6 +126,7 @@ const RoomPage = () => {
             setRemoteSocketId(null);
 
             socket.emit("call:ended", { to: remoteSocketId }); // Notify the other user
+            navigate('/',{replace: true});
         }, [myStream, remoteStream, remoteSocketId, socket]
     );
 
@@ -180,13 +183,18 @@ const RoomPage = () => {
         <div>
             <h1 className='heading'>This is my Room Page</h1>
 
-            <h1 className={`font-semibold ${remoteSocketId ? 'text-green-500' : 'text-red-600'}`}>{remoteSocketId ? 'Connected' : 'No One is Online'}</h1>
+            <div>
+                <h1 className={`font-semibold ${remoteSocketId ? 'text-green-500' : 'text-red-600'}`}>{remoteSocketId ? 'Connected' : 'No One is Online'}</h1>
+
+            <button className=' py-1 w-[70px] bg-red-600 text-white font-semibold rounded-full' onClick={handleEndCall}>End Call</button>
+            </div>
+            
 
             <div className='flex gap-1 w-full max-[700px]:flex-col'>
 
                 <div className=' bg-gray-500 w-1/2 max-[700px]:w-full h-[50%] min-[700px]:h-[90vh] flex flex-col justify-center items-center'>
                     <h1 className='heading'>Sender's Video</h1>
-                    {myStream && <ReactPlayer playing height="full" width="full" url={myStream} />}
+                    {myStream && <ReactPlayer playing height="1/2" width="full" url={myStream} />}
                     {remoteSocketId && !myStream && <button onClick={handleCallUser} className='btn'>CALL</button>}
                 </div>
 
@@ -194,7 +202,10 @@ const RoomPage = () => {
                     <h1 className='heading'>Receiver's Video</h1>
                     {remoteStream && <ReactPlayer playing height="full" width="full" url={remoteStream} />}
                     {myStream && !callAccepted && <button className='btn' onClick={sendStrems}>Accept Call</button>}
+
+                    
                 </div>
+                
             </div>
 
 
