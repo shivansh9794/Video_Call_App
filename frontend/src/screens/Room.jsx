@@ -28,7 +28,7 @@ const RoomPage = () => {
     const handleCallUser = useCallback(
         async () => {
             const stream = await navigator.mediaDevices.getUserMedia({
-                audio: false,
+                audio: true,
                 video: true
             })
             const offer = await peer.getOffer();
