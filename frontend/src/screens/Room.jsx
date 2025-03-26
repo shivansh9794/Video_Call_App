@@ -202,13 +202,8 @@ const RoomPage = () => {
                     <h1 className='heading'>Receiver's Video</h1>
                     {remoteStream && <ReactPlayer playing height="full" width="full" url={remoteStream} />}
                     {myStream && !callAccepted && <button className='btn' onClick={sendStrems}>Accept Call</button>}
-
-                    
                 </div>
-                
             </div>
-
-
         </div>
     )
 }
