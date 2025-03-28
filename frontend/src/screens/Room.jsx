@@ -118,8 +118,6 @@ const RoomPage = () => {
             if (remoteStream) {
                 remoteStream.getTracks().forEach(track => track.stop()); // Stop remote tracks
             }
-            console.log("stream");
-            
 
             setMyStream(null);
             setRemoteStream(null);
