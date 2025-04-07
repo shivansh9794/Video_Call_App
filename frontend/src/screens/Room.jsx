@@ -123,6 +123,7 @@ const RoomPage = () => {
             setRemoteStream(null);
             setCallAccepted(false);
             setCallEnded(true);
+            
             setRemoteSocketId(null);
 
             socket.emit("call:ended", { to: remoteSocketId }); // Notify the other user
