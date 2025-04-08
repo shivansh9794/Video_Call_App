@@ -8,7 +8,8 @@ const RoomPage = () => {
 
     const navigate= useNavigate();
     const socket = useSocket(); //initializing Socket
-
+    console.log("Socket -->",socket);
+    
     // ALl the States
     const [remoteSocketId, setRemoteSocketId] = useState();
     const [myStream, setMyStream] = useState();
@@ -57,7 +58,7 @@ const RoomPage = () => {
     );
 
     // Sending Video Strems to receiver Side
-    const sendStrems = useCallback(
+    const sendStreams = useCallback(
         () => {
             for (const track of myStream.getTracks()) {
                 peer.peer.addTrack(track, myStream);
@@ -72,11 +73,11 @@ const RoomPage = () => {
                 peer.setLocalDescription(ans);
                 setCallAccepted(true);
                 console.log("Call Accepted!");
-                sendStrems();
+                sendStreams();
             } catch (error) {
                 console.log(error);
             }
-        }, [sendStrems]
+        }, [sendStreams]
     );
 
     // Negotiation Handling
@@ -202,7 +203,7 @@ const RoomPage = () => {
                 <div className='bg-green-400 w-1/2 max-[700px]:w-full h-[50%] min-[700px]:h-[90vh] flex flex-col justify-center items-center'>
                     <h1 className='heading'>Receiver's Video</h1>
                     {remoteStream && <ReactPlayer playing height="full" width="full" url={remoteStream} />}
-                    {myStream && !callAccepted && <button className='btn' onClick={sendStrems}>Accept Call</button>}
+                    {myStream && !callAccepted && <button className='btn hover:bg-green-500 active:bg-blue-800'   onClick={sendStreams}>Accept Call</button>}
                 </div>
             </div>
         </div>
