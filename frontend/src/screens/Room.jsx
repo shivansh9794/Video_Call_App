@@ -102,7 +102,6 @@ const RoomPage = () => {
             socket.emit('peer:nego:done', { to: from, ans })
         }, [socket]);
 
-
     // Final Negotiaton
     const handleNegoFinal = useCallback(
         async ({ ans }) => {
