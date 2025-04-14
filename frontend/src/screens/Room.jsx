@@ -57,7 +57,6 @@ const RoomPage = () => {
         }, [socket]
     );    
     
-
     // Sending Video Strems to receiver Side
     const sendStreams = useCallback(
         () => {
