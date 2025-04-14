@@ -55,9 +55,7 @@ const RoomPage = () => {
                 console.error("Error handling incoming call:", error);
             }
         }, [socket]
-    );
-
-    
+    );    
 
     // Sending Video Strems to receiver Side
     const sendStreams = useCallback(
